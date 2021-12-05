@@ -1,4 +1,4 @@
-Baccarat Application
+Baccarat Application, 
 Collaborators: Eric Breden, Quinn Karpmann
 
 This application is a replica of the classic casino game, Baccarat. It is implemented using JavaFX 
