@@ -1,0 +1,41 @@
+@startuml
+
+class Client extends Thread{
+	Socket socketClient
+	ObjectOutputStream out
+	ObjectInputStream in
+	+Client(int port, String address)
+	+ void makeConnection()
+	+void sendBet(int bet, String location)
+	+ void run()
+	+void receiveAndDisplay(ArrayList<Card> playerHand, ArrayList<Card> dealerHand)
+	+void displayROundResults()
+	+void displayWinnings()
+	+void newRound()
+	+void quit()
+}
+
+Client ..> Card
+Client ..> BaccaratInfo
+
+class Card {
+	+String suite
+	+int value
+	+Card(String theSuite, int theValue)
+}
+
+class BaccaratInfo {
+	// generic constructor to package data?
+	+<T implements Serializable> BaccaratInfo(T data)
+	+void serverToClient(T data)
+	+void clientToServer(T data)
+}
+
+class clientGUI extends Application{
+	+void buildIntroScene()
+	+void build GameplayScene()
+	
+}
+
+@enduml
+

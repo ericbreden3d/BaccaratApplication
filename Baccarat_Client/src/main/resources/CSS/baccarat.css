@@ -1,0 +1,69 @@
+.text-field {
+	-fx-font-size: 25px;
+	-fx-alignment: center;
+	-fx-max-width: 150;
+	-fx-background-color: white;
+}
+
+.bid-field {
+	-fx-font-size: 40px;
+	-fx-alignment: center;
+	-fx-min-width: 200;
+	-f-min-height: 400;
+	-fx-background-color: white;
+}
+
+.border {
+	-fx-background-image: url('/Images/background.jpg');
+	-fx-background-position: center;
+	-fx-border-color: maroon;
+	-fx-border-width: 5;
+}
+
+.custom-text {
+	-fx-font-size: 30px;
+	-fx-fill: white;
+}
+
+.custom-text2 {
+	-fx-font-size: 17.5px;
+	-fx-fill: white;
+}
+
+.instructions {
+	-fx-font-size: 16px;
+	-fx-fill: white;
+	-fx-font-weight: bold;
+}
+
+.button {
+	-fx-background-color: rgb(89, 0, 0);
+	-fx-text-fill: white;
+	-fx-background-radius: 20px;
+	-fx-font-weight: bold;
+	-fx-font-size: 25px;
+}
+
+.button:hover {
+	-fx-background-color: rgb(89, 0, 0);
+	-fx-text-fill: white;
+	-fx-background-radius: 20px;
+	-fx-font-weight: bold;
+	-fx-font-size: 26px;
+}
+
+.bid-button {
+	-fx-background-color: rgb(89, 0, 0);
+	-fx-text-fill: white;
+	-fx-background-radius: 60px;
+	-fx-font-weight: bold;
+	-fx-font-size: 32px;
+}
+
+.bid-button:hover {
+	-fx-background-color: rgb(89, 0, 0);
+	-fx-text-fill: white;
+	-fx-background-radius: 60px;
+	-fx-font-weight: bold;
+	-fx-font-size: 33px;
+}
