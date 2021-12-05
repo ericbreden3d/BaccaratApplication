@@ -1,0 +1,86 @@
+@startuml
+
+class Server {
+	-ArrayList<ClientThread> clients = new ArrayList<ClientThread>()
+	-ServerThread server
+	+int count
+	+Server(int port)
+	+startServer(bool onOff)
+	+updateInfo(T data, char type)
+	+updateClients(String message)
+}
+
+class ServerThread extends Thread {
+	-ServerSocket serverSocket
+	+void run()
+}
+
+class ClientThread extends Thread{
+	Socket connection
+	int count
+	ObjectInputStream in
+	ObjectOutputStream out
+	+BaccaratGame gameInstance
+	+ClientThread(Socket s, int count)
+	+void run()
+	+BaccaratGame createGameInstance()
+}
+
+Server o-- ServerThread
+ServerThread o-- ClientThread
+ClientThread *-- BaccaratGame
+ClientThread ..> BaccaratInfo
+
+class BaccaratGame {
+	-ArrayList<Card> playerHand
+	-ArrayList<Card> bankerHand
+	-BaccaratDealer theDealer
+	-double currentBet
+	-double totalWinnings
+	-public double evaluateWinning()
+	-closeResources()
+}
+
+class BaccaratGameLogic {
+	+static String whoWon(ArrayList<Card> hand1, ArrayList<Card> hand2)
+	+static int handTotal(ArrayList<Card> hand)
+	+static boolean evaluateBankerDraw(ArrayList<Card> hand, Card playerCard)
+	+static boolean evaluatePlayerDraw(ArrayList<Card> hand)
+}
+
+class BaccaratDealer {
+	-ArrayList<Card> deck
+	+void generateDeck()
+	+ArrayList<Card> dealHand()
+	+Card drawOne()
+	+void shuffleDeck()
+	+int deckSize()
+}
+
+class Card {
+	+String suite
+	+int value
+	+Card(String theSuite, int theValue)
+}
+
+class BaccaratInfo {
+	// generic constructor to package data?
+	+<T implements Serializable> BaccaratInfo(T data)
+	+void serverToClient(T data)
+	+void clientToServer(T data)
+}
+
+class BaccaratGUI extends Application {
+	+ListView info
+	+buildIntroScene()
+	+buildInfoScene()
+}
+
+Serializable <|.. BaccaratInfo
+BaccaratDealer ..> Card
+BaccaratGame ..> Card
+BaccaratGameLogic ..> Card
+BaccaratGame *-- BaccaratDealer
+
+@enduml
+
